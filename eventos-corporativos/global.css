@@ -1,0 +1,106 @@
+body {
+  margin: 0;
+  line-height: normal;
+}
+
+:root {
+  /* Common Style Variables */
+
+  /* Color */
+  --color-antiquewhite: #e0d9c9;
+  --color-black: #000;
+  --color-darkgray: #a1a1a1;
+  --color-darkslategray: #4b4b4b;
+  --color-floralwhite: #fffdf7;
+  --color-gray-100: #958363;
+  --color-gray-200: #191919;
+  --color-oldlace: #f9f1e3;
+  --color-tan-100: #dbc093;
+  --color-tan-200: #a88c61;
+  --color-white: #fff;
+
+  /* Gap */
+  --gap-8: 8px;
+  --gap-16: 16px;
+  --gap-20: 20px;
+  --gap-24: 24px;
+  --gap-40: 40px;
+  --gap-10_9: 10.9px;
+
+  /* Padding */
+  --padding-0: 0px;
+  --padding-10: 10px;
+  --padding-20: 20px;
+  --padding-24: 24px;
+  --padding-32: 32px;
+  --padding-36: 36px;
+  --padding-40: 40px;
+  --padding-42: 42px;
+  --padding-48: 48px;
+  --padding-52: 52px;
+  --padding-60: 60px;
+  --padding-65: 65px;
+  --padding-80: 80px;
+  --padding-100: 100px;
+  --padding-120: 120px;
+  --padding-9_1: 9.1px;
+
+  /* BorderRadius */
+  --br-12: 12px;
+
+  /* Font */
+  --font-urbanist: Urbanist, Arial, sans-serif;
+
+  /* FontSize */
+  --fs-10: 10px;
+  --fs-11: 11px;
+  --fs-12: 12px;
+  --fs-14: 14px;
+  --fs-15: 15px;
+  --fs-16: 16px;
+  --fs-17: 17px;
+  --fs-18: 18px;
+  --fs-22: 22px;
+  --fs-24: 24px;
+  --fs-40: 40px;
+  --fs-80: 80px;
+
+  /* Borders */
+  --border-1: 1px solid var(--color-tan-100);
+  --border-11: 1px solid var(--color-tan-100);
+
+  /* Shadows */
+  --shadow-drop: 0px 4px 32px rgba(0, 0, 0, 0.05);
+  --text-shadow-1: 0px 0px 6.3px rgba(25, 25, 25, 0.79);
+
+  /* WidthHeights */
+  --height-1: 1px;
+  --height-28: 28px;
+  --height-32: 32px;
+  --height-80: 80px;
+  --width-1: 1px;
+  --width-32: 32px;
+  --width-600: 600px;
+
+  /* LineHeights */
+  --lh-15: 15px;
+  --lh-18: 18px;
+  --lh-24: 24px;
+  --lh-26: 26px;
+  --lh-27: 27px;
+  --lh-32: 32px;
+  --lh-33: 33px;
+  --lh-48: 48px;
+  --lh-80: 80px;
+  --lh-16_5: 16.5px;
+  --lh-22_4: 22.4px;
+  --lh-22_5: 22.5px;
+  --lh-27_2: 27.2px;
+
+  /* LetterSpacings */
+  --ls-2_2: 2.2px;
+  --ls-2_4: 2.4px;
+
+  --left-0: 0px;
+  --left-48: 48px;
+}
