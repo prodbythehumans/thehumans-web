@@ -5,11 +5,17 @@
 }
 .w-light {
   width: 100%;
+  max-width: 100%;
   position: relative;
   background-color: var(--color-white);
   overflow-y: auto;
+  overflow-x: hidden;
   line-height: normal;
   letter-spacing: normal;
+}
+/* Global safety net: no image ever overflows its container */
+img {
+  max-width: 100%;
 }
 .background {
   flex: 1;
@@ -58,7 +64,8 @@
   font-size: var(--fs-11);
 }
 .margin-parent {
-  width: 594px;
+  width: 100%;
+  max-width: 594px;
   height: 260.5px;
   position: relative;
 }
@@ -96,7 +103,8 @@
   font-weight: 200;
 }
 .margin-group {
-  width: 440px;
+  width: 100%;
+  max-width: 440px;
   height: 101.8px;
   position: relative;
   font-size: 19px;
@@ -428,11 +436,11 @@
 .container14 {
   align-self: stretch;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(288px, 1fr));
-  grid-template-rows: repeat(2, 230.1719970703125px);
+  grid-template-columns: repeat(auto-fit, minmax(min(288px, 100%), 1fr));
+  grid-auto-rows: 1fr;
   gap: var(--gap-24);
-  padding-left: var(--padding-120);
-  padding-right: var(--padding-120);
+  padding-left: clamp(var(--padding-20), 6vw, var(--padding-120));
+  padding-right: clamp(var(--padding-20), 6vw, var(--padding-120));
 }
 .backgroundshadow {
   box-shadow: var(--shadow-drop);
@@ -511,6 +519,17 @@
 }
 .backgroundshadow6 {
   grid-column: 3;
+}
+/* Let the cards flow with auto-fit instead of forcing fixed columns/rows,
+   so they stack cleanly when there is room for fewer than 3 columns */
+.backgroundshadow,
+.backgroundshadow2,
+.backgroundshadow3,
+.backgroundshadow4,
+.backgroundshadow5,
+.backgroundshadow6 {
+  grid-column: auto;
+  grid-row: auto;
 }
 .container33 {
   align-self: stretch;
@@ -1291,9 +1310,116 @@
     line-height: 66px;
   }
 }
+@media screen and (max-width: 800px) {
+  /* Hero: the left photo was absolutely positioned and covered the text on
+     narrow screens. Turn it into a full-width banner and let the text flow. */
+  .section {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 32px;
+    padding: 48px var(--padding-60);
+    min-height: 0;
+  }
+  .fotos-porfiolo-coorporativo2-1 {
+    position: relative;
+    order: -1;
+    width: 100%;
+    min-width: 100%;
+    height: 240px;
+    left: 0;
+    top: auto;
+    bottom: auto;
+    max-height: none;
+    border-radius: var(--br-12);
+  }
+  .container {
+    order: 0;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    padding: 0;
+    flex: 0 1 auto;
+  }
+  /* Release the internal absolute positioning so text stacks in flow */
+  .margin,
+  .heading-1,
+  .margin2,
+  .container2 {
+    position: static;
+  }
+  .margin-parent,
+  .margin-group {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+  }
+  .heading-1 {
+    padding-right: 0;
+  }
+  .container2 {
+    padding-top: 0;
+  }
+  .container3 {
+    position: relative;
+    order: 1;
+    top: auto;
+    left: auto;
+    align-self: center;
+    text-align: center;
+  }
+
+  /* Section 4: stack the two comparison columns instead of overflowing */
+  .container39 {
+    flex-direction: column;
+  }
+  .container41,
+  .container43 {
+    width: 100%;
+    max-width: 100%;
+  }
+  .border,
+  .border2 {
+    border-right: none;
+  }
+}
+@media screen and (max-width: 767px) {
+  /* Stack paired images so they keep their aspect ratio on phones */
+  .container9,
+  .container55 {
+    flex-direction: column;
+    height: auto;
+  }
+  .backgroundborder-icon2,
+  .backgroundborder-icon3,
+  .backgroundborder-icon5,
+  .backgroundborder-icon6 {
+    width: 100%;
+    min-width: 100%;
+    height: auto;
+  }
+  .backgroundborder-icon,
+  .backgroundborder-icon4 {
+    height: auto;
+  }
+
+  /* Tighter horizontal padding on phones */
+  .container4 {
+    padding-left: var(--padding-20);
+    padding-right: var(--padding-20);
+  }
+  .container33,
+  .section4,
+  .section5,
+  .section6 {
+    padding-left: var(--padding-24);
+    padding-right: var(--padding-24);
+  }
+}
 @media screen and (max-width: 450px) {
   .section {
     padding-left: var(--padding-20);
+    padding-right: var(--padding-20);
     padding-top: var(--padding-80);
     padding-bottom: var(--padding-80);
     box-sizing: border-box;
