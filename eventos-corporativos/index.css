@@ -687,9 +687,6 @@ img {
 }
 .container40 {
   margin: 0 !important;
-  position: absolute;
-  top: 33px;
-  right: 48.3px;
   opacity: 0.2;
   z-index: 0;
   flex-shrink: 0;
@@ -707,7 +704,7 @@ img {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  padding: var(--padding-48) var(--padding-0) var(--padding-0);
+  padding: var(--padding-10) var(--padding-0) var(--padding-0);
   box-sizing: border-box;
   gap: var(--gap-16);
   z-index: 1;
@@ -761,9 +758,6 @@ img {
 }
 .container44 {
   margin: 0 !important;
-  position: absolute;
-  top: 33px;
-  right: 48.2px;
   opacity: 0.2;
   z-index: 0;
   flex-shrink: 0;
@@ -780,11 +774,6 @@ img {
 }
 .h23 {
   margin: 0 !important;
-  width: 90.1px;
-  height: var(--height-80);
-  position: absolute;
-  top: 33px;
-  left: 48px;
   font-size: inherit;
   line-height: var(--lh-80);
   font-weight: 100;
@@ -803,7 +792,7 @@ img {
 }
 .container48 {
   align-self: stretch;
-  padding: var(--padding-48) var(--padding-0) var(--padding-0);
+  padding: var(--padding-10) var(--padding-0) var(--padding-0);
   gap: var(--gap-16);
   z-index: 1;
   flex-shrink: 0;
@@ -823,11 +812,6 @@ img {
 }
 .h24 {
   margin: 0 !important;
-  width: 89.1px;
-  height: var(--height-80);
-  position: absolute;
-  top: 33px;
-  left: 48px;
   font-size: inherit;
   line-height: var(--lh-80);
   font-weight: 100;
@@ -1157,6 +1141,36 @@ img {
     height: auto;
     flex-wrap: wrap;
   }
+  /* Below this width the two columns stack. HTML groups them as 01+03 and
+     02+04, so flatten the wrappers and reorder blocks to read 01,02,03,04 */
+  .container39 {
+    flex-direction: column;
+  }
+  .border-parent {
+    display: contents;
+  }
+  .border {
+    order: 1;
+  }
+  .horizontalborder {
+    order: 2;
+  }
+  .border2 {
+    order: 3;
+  }
+  .horizontalborder2 {
+    order: 4;
+  }
+  .border,
+  .border2 {
+    border-right: none;
+  }
+  /* Align all four blocks to the same left edge when stacked */
+  .horizontalborder,
+  .horizontalborder2 {
+    padding-left: var(--padding-0);
+    padding-right: var(--padding-0);
+  }
   .backgroundborder-icon5,
   .backgroundborder-icon6 {
     flex: 1;
@@ -1269,8 +1283,8 @@ img {
     line-height: var(--lh-48);
   }
   .horizontalborder {
-    padding-left: var(--padding-24);
-    padding-right: var(--padding-24);
+    padding-left: var(--padding-0);
+    padding-right: var(--padding-0);
     box-sizing: border-box;
   }
   .h23 {
@@ -1278,8 +1292,8 @@ img {
     line-height: var(--lh-48);
   }
   .horizontalborder2 {
-    padding-left: var(--padding-24);
-    padding-right: var(--padding-24);
+    padding-left: var(--padding-0);
+    padding-right: var(--padding-0);
     box-sizing: border-box;
   }
   .h24 {
