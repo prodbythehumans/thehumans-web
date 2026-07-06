@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>the humans. — admin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+
+  <!-- gate -->
+  <div class="gate" id="gate">
+    <div class="gate-box">
+      <p class="gate-brand">the humans<span class="gold">.</span></p>
+      <p class="gate-label">panel privado</p>
+      <input type="password" id="gate-input" placeholder="Contraseña" autocomplete="current-password">
+      <button id="gate-btn">Entrar</button>
+      <p class="gate-error" id="gate-error" hidden>Contraseña incorrecta.</p>
+    </div>
+  </div>
+
+  <!-- panel -->
+  <div class="panel" id="panel" hidden>
+    <header class="panel-head">
+      <p class="gate-brand">the humans<span class="gold">.</span> <span class="panel-sub">configurador press kit</span></p>
+      <a href="../" class="view-link" target="_blank" rel="noopener">Ver press kit →</a>
+    </header>
+
+    <section class="block">
+      <h2>Streams (manual)</h2>
+      <p class="hint">Cifras totales por plataforma. El totalizador se calcula solo. Si todo está a 0, la web muestra el valor de reserva (20.000.000+).</p>
+      <div class="streams-form">
+        <label>Spotify <input type="number" id="in-spotify" min="0" step="1"></label>
+        <label>YouTube <input type="number" id="in-youtube" min="0" step="1"></label>
+        <label>Apple Music (estimado) <input type="number" id="in-apple" min="0" step="1"></label>
+        <label>Total de reserva <input type="number" id="in-fallback" min="0" step="1"></label>
+      </div>
+      <p class="total-line">Total calculado: <strong id="calc-total">0</strong></p>
+    </section>
+
+    <section class="block">
+      <h2>Fotos</h2>
+      <p class="hint">Marca las fotos que aparecen en la galería. La estrella elige la foto de portada.</p>
+      <div class="media-grid" id="photos-grid"></div>
+    </section>
+
+    <section class="block">
+      <h2>Vídeos</h2>
+      <p class="hint">Marca los vídeos que aparecen en el press kit.</p>
+      <div class="media-grid videos" id="videos-grid"></div>
+    </section>
+
+    <section class="block block-save">
+      <h2>Guardar cambios</h2>
+      <p class="hint">Necesita un token de GitHub con permiso de escritura en el repositorio (se guarda solo en este navegador).</p>
+      <input type="password" id="in-token" placeholder="Token de GitHub (ghp_… o github_pat_…)" autocomplete="off">
+      <button id="save-btn">Publicar cambios</button>
+      <p class="save-status" id="save-status"></p>
+    </section>
+  </div>
+
+  <script src="admin.js" defer></script>
+</body>
+</html>
