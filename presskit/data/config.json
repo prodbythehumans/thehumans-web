@@ -1,0 +1,24 @@
+{
+  "updatedAt": "2026-07-06T00:00:00Z",
+  "heroPhotoId": "1PRDqciMkfouAihgB_hkbx9qO51nxygsR",
+  "selectedPhotos": [
+    "1PRDqciMkfouAihgB_hkbx9qO51nxygsR",
+    "1R3euMFid8nZwZ8VvS4_iOvQtlHiqka_g",
+    "1kYaS5qZ4rIgDQKt9Bfzhd482euLuKQmZ",
+    "1XV5HV7ecSZqY8ZbLHuSrg_pesZArzIUw",
+    "1At8OJcBH1eaJF_BAGOBAWVJc-rSMwQOv",
+    "1KsZERMtsmBX2VYNJdYZq8yOxO_Lsacnt",
+    "1BPDtanD75kEgXYVeUpKBjDoFFSUsZ0R4",
+    "10eSzznPtOZK4bPNtDgnigyPaPneObhcR"
+  ],
+  "selectedVideos": [
+    "1DbSesVIzAXmsL7nfjAeSGaDIws1VLV19",
+    "1xUoSbvoN1Tz-JEcz0dKQGOhveryc9W2x"
+  ],
+  "streams": {
+    "spotify": 0,
+    "appleMusic": 0,
+    "youtube": 0,
+    "totalFallback": 20000000
+  }
+}

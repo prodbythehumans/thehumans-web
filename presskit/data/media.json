@@ -1,0 +1,40 @@
+{
+  "generatedAt": "2026-07-06T00:00:00Z",
+  "photos": [
+    { "id": "1PRDqciMkfouAihgB_hkbx9qO51nxygsR", "name": "7 2.jpg", "createdTime": "2026-06-15T11:59:46.337Z" },
+    { "id": "1R3euMFid8nZwZ8VvS4_iOvQtlHiqka_g", "name": "6 2.jpg", "createdTime": "2026-06-15T11:59:44.156Z" },
+    { "id": "1kYaS5qZ4rIgDQKt9Bfzhd482euLuKQmZ", "name": "5 2.jpg", "createdTime": "2026-06-15T11:59:41.916Z" },
+    { "id": "1XV5HV7ecSZqY8ZbLHuSrg_pesZArzIUw", "name": "4 2.jpg", "createdTime": "2026-06-15T11:59:39.330Z" },
+    { "id": "1At8OJcBH1eaJF_BAGOBAWVJc-rSMwQOv", "name": "3 2.jpg", "createdTime": "2026-06-15T11:59:37.017Z" },
+    { "id": "1KsZERMtsmBX2VYNJdYZq8yOxO_Lsacnt", "name": "6.jpg", "createdTime": "2026-06-15T11:58:34.644Z" },
+    { "id": "1BPDtanD75kEgXYVeUpKBjDoFFSUsZ0R4", "name": "5.jpg", "createdTime": "2026-06-15T11:58:29.709Z" },
+    { "id": "10eSzznPtOZK4bPNtDgnigyPaPneObhcR", "name": "4.jpg", "createdTime": "2026-06-15T11:58:26.778Z" },
+    { "id": "1wHp7gL-R04irBkAHe2xoXxYeVkULoaXf", "name": "3.jpg", "createdTime": "2026-06-15T11:58:24.478Z" },
+    { "id": "1D5stbvVx-oxxWMJWr4bmQFSlqbK8IEv0", "name": "2.jpg", "createdTime": "2026-06-15T11:58:21.962Z" }
+  ],
+  "videos": [
+    { "id": "1xUoSbvoN1Tz-JEcz0dKQGOhveryc9W2x", "name": "IMG_4828.MOV", "folder": "Fitz - Madrid", "createdTime": "2026-04-20T11:26:44.492Z" },
+    { "id": "1QNu9G0j8-JaLLzjVHpaLG58pNLFG8P3W", "name": "IMG_4827.MOV", "folder": "Fitz - Madrid", "createdTime": "2026-04-20T11:26:35.993Z" },
+    { "id": "164KIy_oLl_BuYLXBVgP4JYvdBovR0RPR", "name": "IMG_4825.MOV", "folder": "Fitz - Madrid", "createdTime": "2026-04-20T11:26:00.591Z" },
+    { "id": "1eJrOjcFYLxYNhncBQ7-bHZxMAAOl-gs5", "name": "IMG_4823.MOV", "folder": "Fitz - Madrid", "createdTime": "2026-04-20T11:25:52.659Z" },
+    { "id": "1sRq2Z-tZnuiMJNH16smRRAm9QpasiyHN", "name": "IMG_4821.MOV", "folder": "Fitz - Madrid", "createdTime": "2026-04-20T11:25:33.790Z" },
+    { "id": "1nCEGBkbRIjaOVg0d3dXCha_wfWG93iKA", "name": "IMG_4820.MOV", "folder": "Fitz - Madrid", "createdTime": "2026-04-20T11:25:22.893Z" },
+    { "id": "14dXsYn5gp6BJRiBykuaYGt4k-XXWLYDM", "name": "IMG_4819.MOV", "folder": "Fitz - Madrid", "createdTime": "2026-04-20T11:11:17.246Z" },
+    { "id": "18XGGLI0WZ7myzURtQUQ7P2g_v7py5OT7", "name": "IMG_4818.MOV", "folder": "Fitz - Madrid", "createdTime": "2026-04-20T11:11:09.844Z" },
+    { "id": "1erFqBGHT8darndWXfmggo3oiJVHD4woh", "name": "IMG_4817.MOV", "folder": "Fitz - Madrid", "createdTime": "2026-04-20T11:11:01.047Z" },
+    { "id": "1ltcE8Svs8KdeIlzWx8Bb0DPmNR3iBIAH", "name": "IMG_4816.MOV", "folder": "Fitz - Madrid", "createdTime": "2026-04-20T11:10:53.529Z" },
+    { "id": "10XsBIcB_bhFFjt49crjxzQVB64AW4APS", "name": "C0008.MP4", "folder": "Tiffanys - Madrid", "createdTime": "2025-07-22T20:14:24.162Z" },
+    { "id": "1Nx4VWC6zxjw4vSIjgKa6JBh7tcwqC1OT", "name": "C0016.MP4", "folder": "Tiffanys - Madrid", "createdTime": "2025-07-22T20:23:11.504Z" },
+    { "id": "1mFFEOk6OilhtXEhDpipyOidQKK55O9YP", "name": "C0015.MP4", "folder": "Tiffanys - Madrid", "createdTime": "2025-07-22T20:21:39.145Z" },
+    { "id": "1LW-P-9AH7gmNET4e8YAdgoYKPgPxuTdp", "name": "C0009.MP4", "folder": "Tiffanys - Madrid", "createdTime": "2025-07-22T20:18:15.354Z" },
+    { "id": "1BtKbMIsujluv65AZKdkqJpA2pO1Vxzop", "name": "C0012.MP4", "folder": "Tiffanys - Madrid", "createdTime": "2025-07-22T20:19:07.230Z" },
+    { "id": "1QGmWx7p6bNRQb_omFF6ELBiMuObxbAwA", "name": "C0007.MP4", "folder": "Tiffanys - Madrid", "createdTime": "2025-07-15T18:07:36.426Z" },
+    { "id": "1pEiw0UbtYb3_BmS_qCnlW22nG6cjkalN", "name": "C0006.MP4", "folder": "Tiffanys - Madrid", "createdTime": "2025-07-15T17:59:52.703Z" },
+    { "id": "1gXz0j0LJzZl9YMnpkhM92zZ5JA5skdtV", "name": "C0013.MP4", "folder": "Tiffanys - Madrid", "createdTime": "2025-07-15T17:51:03.499Z" },
+    { "id": "1wt496f51NNjRjieDWOioEJA8dC-lp44s", "name": "C0014.MP4", "folder": "Tiffanys - Madrid", "createdTime": "2025-07-15T17:49:30.528Z" },
+    { "id": "19aMRuLStE4HcH947e3ml2EGGBl88yWkr", "name": "C0018.MP4", "folder": "Tiffanys - Madrid", "createdTime": "2025-07-15T17:47:34.244Z" },
+    { "id": "1TMGvSiAD43lN-fjoWPHnUPmowm2-IewJ", "name": "Clip Jose_19.mp4", "folder": "Estudio", "createdTime": "2025-07-15T18:18:54.084Z" },
+    { "id": "1a_PcJnCqls5Xpvm3NMHYKQ5TJXclqT33", "name": "Clip Jose_22.mp4", "folder": "Estudio", "createdTime": "2025-07-15T18:17:55.823Z" },
+    { "id": "1DbSesVIzAXmsL7nfjAeSGaDIws1VLV19", "name": "Digital Press Kit - The Humans.mp4", "folder": "", "createdTime": "2025-08-16T10:02:49.801Z" }
+  ]
+}
