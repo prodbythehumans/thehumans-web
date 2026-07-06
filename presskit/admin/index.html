@@ -31,15 +31,13 @@
     </header>
 
     <section class="block">
-      <h2>Streams (manual)</h2>
-      <p class="hint">Cifras totales por plataforma. El totalizador se calcula solo. Si todo está a 0, la web muestra el valor de reserva (20.000.000+).</p>
+      <h2>Streams</h2>
+      <p class="hint">Mete la cifra total de Spotify (la ves en Spotify for Artists). La web calcula sola Apple Music (÷3), YouTube (÷4) y el total. Si dejas Spotify en 0, la web muestra el valor de reserva.</p>
       <div class="streams-form">
-        <label>Spotify <input type="number" id="in-spotify" min="0" step="1"></label>
-        <label>YouTube <input type="number" id="in-youtube" min="0" step="1"></label>
-        <label>Apple Music (estimado) <input type="number" id="in-apple" min="0" step="1"></label>
+        <label>Spotify (streams totales) <input type="number" id="in-spotify" min="0" step="1"></label>
         <label>Total de reserva <input type="number" id="in-fallback" min="0" step="1"></label>
       </div>
-      <p class="total-line">Total calculado: <strong id="calc-total">0</strong></p>
+      <p class="total-line">Apple Music (÷3): <strong id="calc-apple">0</strong> · YouTube (÷4): <strong id="calc-youtube">0</strong> · Total: <strong id="calc-total">0</strong></p>
     </section>
 
     <section class="block">

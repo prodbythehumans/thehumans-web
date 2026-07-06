@@ -64,22 +64,20 @@
   function fmt(n) { return n.toLocaleString('es-ES'); }
 
   function recalcTotal() {
-    var t = (+document.getElementById('in-spotify').value || 0) +
-            (+document.getElementById('in-youtube').value || 0) +
-            (+document.getElementById('in-apple').value || 0);
-    document.getElementById('calc-total').textContent = fmt(t);
+    var spotify = +document.getElementById('in-spotify').value || 0;
+    var apple = Math.round(spotify / 3);
+    var youtube = Math.round(spotify / 4);
+    document.getElementById('calc-apple').textContent = fmt(apple);
+    document.getElementById('calc-youtube').textContent = fmt(youtube);
+    document.getElementById('calc-total').textContent = fmt(spotify + apple + youtube);
   }
 
   function renderPanel() {
     var s = config.streams || {};
     document.getElementById('in-spotify').value = s.spotify || 0;
-    document.getElementById('in-youtube').value = s.youtube || 0;
-    document.getElementById('in-apple').value = s.appleMusic || 0;
     document.getElementById('in-fallback').value = s.totalFallback || 0;
     recalcTotal();
-    ['in-spotify', 'in-youtube', 'in-apple'].forEach(function (id) {
-      document.getElementById(id).addEventListener('input', recalcTotal);
-    });
+    document.getElementById('in-spotify').addEventListener('input', recalcTotal);
 
     var savedToken = localStorage.getItem('th-gh-token');
     if (savedToken) document.getElementById('in-token').value = savedToken;
@@ -184,8 +182,6 @@
       ),
       streams: {
         spotify: +document.getElementById('in-spotify').value || 0,
-        appleMusic: +document.getElementById('in-apple').value || 0,
-        youtube: +document.getElementById('in-youtube').value || 0,
         totalFallback: +document.getElementById('in-fallback').value || 0
       }
     };

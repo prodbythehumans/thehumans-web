@@ -32,7 +32,8 @@
       'milestones.m5.body': 'Como productores, con producciones en un álbum #1 global en Spotify.',
       'streams.label': 'streams',
       'streams.totalLabel': 'streams combinados',
-      'streams.appleNote': 'estimado — Apple Music no publica datos',
+      'streams.appleNote': 'estimado',
+      'streams.ytNote': 'estimado',
       'gallery.label': 'fotos',
       'videos.label': 'vídeos',
       'contact.label': 'contacto'
@@ -57,7 +58,8 @@
       'milestones.m5.body': 'As producers, with credits on a #1 global album on Spotify.',
       'streams.label': 'streams',
       'streams.totalLabel': 'combined streams',
-      'streams.appleNote': 'estimated — Apple Music does not publish data',
+      'streams.appleNote': 'estimated',
+      'streams.ytNote': 'estimated',
       'gallery.label': 'photos',
       'videos.label': 'videos',
       'contact.label': 'contact'
@@ -176,14 +178,19 @@
       heroImg.addEventListener('load', function () { heroImg.classList.add('loaded'); });
     }
 
-    /* streams */
+    /* streams — Spotify is the only real figure; Apple = ÷3, YouTube = ÷4 */
     var s = config.streams || {};
-    var vals = [s.spotify || 0, s.youtube || 0, s.appleMusic || 0];
-    var sum = vals[0] + vals[1] + vals[2];
+    var spotify = s.spotify || 0;
+    var computed = {
+      spotify: spotify,
+      appleMusic: Math.round(spotify / 3),
+      youtube: Math.round(spotify / 4)
+    };
+    var sum = computed.spotify + computed.appleMusic + computed.youtube;
     var totalEl = document.getElementById('total-streams');
     var grid = document.getElementById('streams-grid');
 
-    var useFallback = sum === 0 && s.totalFallback;
+    var useFallback = spotify === 0 && s.totalFallback;
     var total = useFallback ? s.totalFallback : sum;
 
     if (useFallback && grid) grid.classList.add('hidden');
@@ -196,7 +203,7 @@
           countUp(totalEl, total, true);
         } else {
           var plat = e.target.closest('.stream-card').dataset.platform;
-          countUp(e.target, s[plat] || 0, false);
+          countUp(e.target, computed[plat] || 0, false);
         }
       });
     }, { threshold: 0.4 });

@@ -17,8 +17,6 @@
   ],
   "streams": {
     "spotify": 0,
-    "appleMusic": 0,
-    "youtube": 0,
     "totalFallback": 20000000
   }
 }
