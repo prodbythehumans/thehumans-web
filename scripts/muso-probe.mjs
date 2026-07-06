@@ -14,7 +14,11 @@ if (!KEY) {
   process.exit(1);
 }
 
-const headers = { Accept: 'application/json', 'workspace-api-key': KEY };
+const headers = {
+  Accept: 'application/json',
+  'workspace-api-key': KEY,
+  'User-Agent': 'curl/8.4.0',
+};
 
 const paths = [
   '/workspace/roster',
