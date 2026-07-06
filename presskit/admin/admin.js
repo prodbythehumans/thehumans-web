@@ -4,7 +4,7 @@
 
   /* SHA-256 of the panel password. To change the password, generate a new
      hash (e.g. https://emn178.github.io/online-tools/sha256.html) and replace it. */
-  var PASS_HASH = 'c22b40009bddf52db70ca5b377d64f780b2d13479812a0d7bb2822edb1dbe6bd';
+  var PASS_HASH = '9d3947497868e37fea0415f5102ceb10605e28021ef591f239b0388832d733f1';
 
   var REPO = 'prodbythehumans/thehumans-web';
   var CONFIG_PATH = 'presskit/data/config.json';
