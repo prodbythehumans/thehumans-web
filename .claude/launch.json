@@ -6,6 +6,19 @@
       "runtimeExecutable": "python3",
       "runtimeArgs": ["-m", "http.server", "8765"],
       "port": 8765
+    },
+    {
+      "name": "recetas",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": ["-m", "http.server", "8777", "--directory", "/Users/jlopez/proyectos locales/recetas-app"],
+      "port": 8777
+    },
+    {
+      "name": "reggaeton-intro-tool",
+      "runtimeExecutable": "/Users/jlopez/reggaeton-intro-tool/.venv/bin/python",
+      "runtimeArgs": ["/Users/jlopez/reggaeton-intro-tool/app.py"],
+      "port": 5000,
+      "autoPort": true
     }
   ]
 }
