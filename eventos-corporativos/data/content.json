@@ -1,10 +1,10 @@
 {
-  "updatedAt": "2026-07-14T00:00:00.000Z",
+  "updatedAt": "2026-07-14T17:29:26.970Z",
   "texts": {
     "es": {
       "hero.kicker": "Professional Music · Corporate Events",
       "hero.sub": "Cuando el ambiente lo es todo, el sonido no puede fallar.",
-      "marquee": "Cenas de Gala · Cocktails · Team Building · Congresos · Networking · España · ",
+      "marquee": "Cenas de Gala · Cocktails · Team Building · Congresos · Networking · España ·",
       "bio.label": "quiénes somos",
       "bio.title": "Doce años de cabinas. Cinco de corporativo.",
       "bio.p1": "Somos The Humans. Dos profesionales que combinan doce años de experiencia en cabinas con una trayectoria sólida en el entorno corporativo. Nuestro punto de partida no fue la música: fue la empresa. Conocemos de primera mano cómo funciona una organización, cómo se planifica un evento y qué espera realmente un equipo directivo cuando se sienta a cenar. Esa comprensión del mundo corporativo es la que define nuestra manera de trabajar.",
@@ -67,7 +67,7 @@
     "en": {
       "hero.kicker": "Professional Music · Corporate Events",
       "hero.sub": "When the atmosphere is everything, the sound cannot fail.",
-      "marquee": "Gala Dinners · Cocktails · Team Building · Conferences · Networking · Spain · ",
+      "marquee": "Gala Dinners · Cocktails · Team Building · Conferences · Networking · Spain ·",
       "bio.label": "who we are",
       "bio.title": "Twelve years behind the decks. Five in corporate.",
       "bio.p1": "We are The Humans. Two professionals combining twelve years of DJ-booth experience with a solid track record in the corporate world. Our starting point was not music: it was business. We know first-hand how an organization works, how an event is planned and what an executive team really expects when they sit down for dinner. That understanding of the corporate world defines the way we work.",
@@ -129,12 +129,33 @@
     }
   },
   "images": {
-    "hero": { "src": "./public/hero.jpg", "alt": "The Humans" },
-    "bio1": { "src": "./public/duo-a.jpg", "alt": "The Humans en cabina" },
-    "bio2": { "src": "./public/duo-b.jpg", "alt": "DILEMMA" },
-    "bio3": { "src": "./public/duo-c.jpg", "alt": "JORGE RODRIZ" },
-    "clientsWide": { "src": "./public/club-b.jpg", "alt": "The Humans en directo" },
-    "clients2": { "src": "./public/club-a.jpg", "alt": "DILEMMA en cabina" },
-    "clients3": { "src": "./public/club-c.jpg", "alt": "JORGE RODRIZ en cabina" }
+    "hero": {
+      "src": "./public/hero-1784050166970.png",
+      "alt": "The Humans"
+    },
+    "bio1": {
+      "src": "./public/duo-a.jpg",
+      "alt": "The Humans en cabina"
+    },
+    "bio2": {
+      "src": "./public/duo-b.jpg",
+      "alt": "DILEMMA"
+    },
+    "bio3": {
+      "src": "./public/duo-c.jpg",
+      "alt": "JORGE RODRIZ"
+    },
+    "clientsWide": {
+      "src": "./public/club-b.jpg",
+      "alt": "The Humans en directo"
+    },
+    "clients2": {
+      "src": "./public/club-a.jpg",
+      "alt": "DILEMMA en cabina"
+    },
+    "clients3": {
+      "src": "./public/club-c.jpg",
+      "alt": "JORGE RODRIZ en cabina"
+    }
   }
 }
