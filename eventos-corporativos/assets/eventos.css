@@ -464,19 +464,31 @@ body {
 }
 .lightbox.open { opacity: 1; }
 .lightbox-stage {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
   width: 100%;
   max-width: min(94vw, 1200px);
+  height: 78vh;
 }
 .lightbox-img {
+  position: absolute;
   max-width: min(92vw, 1100px);
   max-height: 78vh;
   object-fit: contain;
   border-radius: 4px;
+  transition: opacity 0.32s var(--ease), transform 0.32s var(--ease);
+  will-change: opacity, transform;
 }
-.lightbox-caption { color: var(--sand); margin-top: 1rem; font-size: 0.9rem; }
+.lightbox-meta {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1.1rem;
+}
+.lightbox-caption { color: var(--sand); font-size: 0.9rem; letter-spacing: 0.04em; }
+.lightbox-counter { color: var(--stone); font-size: 0.85rem; font-variant-numeric: tabular-nums; }
 .lightbox-close {
   position: absolute;
   top: 1.2rem;
@@ -487,8 +499,36 @@ body {
   font-size: 2.4rem;
   cursor: pointer;
   line-height: 1;
-  z-index: 2;
+  z-index: 3;
 }
+.lightbox-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  border: 1px solid rgba(219, 192, 147, 0.4);
+  background: rgba(25, 25, 25, 0.5);
+  backdrop-filter: blur(4px);
+  color: var(--cream);
+  font-size: 2rem;
+  line-height: 1;
+  cursor: pointer;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s var(--ease), transform 0.3s var(--ease), border-color 0.3s var(--ease);
+}
+.lightbox-nav:hover {
+  background: rgba(25, 25, 25, 0.8);
+  border-color: var(--gold);
+  transform: translateY(-50%) scale(1.06);
+}
+.lightbox-prev { left: clamp(0.75rem, 3vw, 2.4rem); }
+.lightbox-next { right: clamp(0.75rem, 3vw, 2.4rem); }
+.lightbox-nav span { pointer-events: none; }
 
 /* ---------- reveal animations ---------- */
 .reveal {
@@ -521,6 +561,7 @@ body {
     transition: none;
   }
   .marquee-track { animation: none; }
+  .lightbox-img { transition: opacity 0.2s linear; }
   html { scroll-behavior: auto; }
 }
 
@@ -542,6 +583,9 @@ body {
   .clients-collage .gallery-item:not(.collage-wide) { aspect-ratio: 16 / 9; }
   .clients-collage .collage-wide { aspect-ratio: 16 / 9; }
   .spec-row { grid-template-columns: 1fr; gap: 0.2rem; padding: 0.95rem 0; }
+  .lightbox-nav { width: 44px; height: 44px; font-size: 1.6rem; }
+  .lightbox-stage { height: 68vh; }
+  .lightbox-img { max-height: 68vh; }
   .hero-veil {
     background:
       linear-gradient(180deg, rgba(255,253,247,0.55) 0%, rgba(255,253,247,0.2) 40%, rgba(255,253,247,0.92) 100%);

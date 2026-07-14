@@ -2,159 +2,83 @@
 (function () {
   'use strict';
 
-  /* ---------- i18n ---------- */
-  var I18N = {
-    es: {
-      'hero.sub': 'Cuando el ambiente lo es todo, el sonido no puede fallar.',
-      'marquee': 'Cenas de Gala · Cocktails · Team Building · Congresos · Networking · España · ',
-      'bio.label': 'quiénes somos',
-      'bio.title': 'Doce años de cabinas. Cinco de corporativo.',
-      'bio.p1': 'Somos The Humans. Dos profesionales que combinan doce años de experiencia en cabinas con una trayectoria sólida en el entorno corporativo. Nuestro punto de partida no fue la música: fue la empresa. Conocemos de primera mano cómo funciona una organización, cómo se planifica un evento y qué espera realmente un equipo directivo cuando se sienta a cenar. Esa comprensión del mundo corporativo es la que define nuestra manera de trabajar.',
-      'bio.p2': 'Contamos con formación en producción musical, ingeniería de telecomunicaciones y técnica de sonido, complementada con estudios en publicidad y marketing. No somos simplemente DJs: somos técnicos y creativos con un enfoque profesional en cada servicio que prestamos.',
-      'bio.chip1': '12 años de experiencia',
-      'bio.chip2': 'Toda España',
-      'photos.booth': 'The Humans en cabina',
-      'photos.live': 'The Humans en directo',
-      'services.label': 'servicios',
-      'services.title': 'Todo el ambiente, sin complicaciones.',
-      'services.sub': 'Ambientación musical integral para cada momento del evento.',
-      'services.s1.title': 'Cenas de Gala',
-      'services.s1.body': 'Elegante ambientación musical para cenas corporativas de noche, creando el ambiente perfecto para cada momento.',
-      'services.s2.title': 'Cocktails y Recepciones',
-      'services.s2.body': 'Música de bienvenida y ambientación para pre-evento. El tono ideal para iniciar cada encuentro con elegancia.',
-      'services.s3.title': 'Team Building',
-      'services.s3.body': 'Energía dinámica para actividades de grupo. Selección musical que une equipos y potencia la experiencia colectiva.',
-      'services.s4.title': 'Congresos y Jornadas',
-      'services.s4.body': 'Música de fondo discreta y profesional para conferencias y jornadas. Presencia sonora sin protagonismo innecesario.',
-      'services.s5.title': 'Networking',
-      'services.s5.body': 'Atmósfera fluida para el networking empresarial. El sonido que facilita la conversación sin interrumpirla.',
-      'services.s6.title': 'Aniversarios de Empresa',
-      'services.s6.body': 'Celebraciones de hitos corporativos y galas de empresa. Una noche especial merece una banda sonora a la altura.',
-      'services.f1': 'Equipo propio incluido',
-      'services.f2': 'De 1 a 8 horas',
-      'services.f3': 'Cobertura nacional',
-      'why.label': 'por qué nosotros',
-      'why.title': 'Profesionales que entienden la empresa antes que la música.',
-      'why.w1.title': 'Reunión previa a cada evento',
-      'why.w1.body': 'Antes de cada servicio estudiamos el perfil de los asistentes, los tiempos del programa y las preferencias del cliente. No improvisamos: llegamos con un plan.',
-      'why.w2.title': 'Venimos del mundo corporativo',
-      'why.w2.body': 'Entendemos la dinámica de una empresa y lo que espera un equipo directivo. Esa perspectiva cambia nuestra forma de preparar y ejecutar cada evento.',
-      'why.w3.title': 'Autonomía técnica total',
-      'why.w3.body': 'Solo necesitamos una mesa y un enchufe. Sin coordinación de proveedores, sin imprevistos técnicos, sin carga adicional para el organizador.',
-      'why.w4.title': 'Adaptabilidad real',
-      'why.w4.body': 'Doce años en todos los contextos posibles nos permiten leer cualquier sala y ajustar el sonido en tiempo real, sin que el organizador tenga que intervenir.',
-      'clients.label': 'eventos y clientes',
-      'clients.title': 'Espacios de referencia. Clientes que repiten.',
-      'clients.s1': 'Eventos Corporativos',
-      'clients.s2': 'Colaboraciones con Agencias',
-      'specs.label': 'ficha técnica',
-      'specs.title': 'Todo lo que necesitas saber antes de contratar.',
-      'specs.r1.k': 'Equipo principal',
-      'specs.r2.k': 'Sonido',
-      'specs.r2.v': 'Sistema propio incluido',
-      'specs.r3.k': 'Iluminación',
-      'specs.r3.v': 'Incluida',
-      'specs.r4.k': 'Requisitos',
-      'specs.r4.v': '1 toma de corriente 220V + espacio cabina',
-      'specs.r5.k': 'Idiomas',
-      'specs.r5.v': 'Español · Inglés',
-      'specs.r6.k': 'Cobertura',
-      'specs.r6.v': 'Nacional',
-      'specs.r7.k': 'Seguro R.C.',
-      'specs.r7.v': 'Disponible bajo solicitud',
-      'contact.label': 'contacto',
-      'contact.title': 'Cuéntanos tu evento. Respondemos en menos de 24 horas.'
-    },
-    en: {
-      'hero.sub': 'When the atmosphere is everything, the sound cannot fail.',
-      'marquee': 'Gala Dinners · Cocktails · Team Building · Conferences · Networking · Spain · ',
-      'bio.label': 'who we are',
-      'bio.title': 'Twelve years behind the decks. Five in corporate.',
-      'bio.p1': 'We are The Humans. Two professionals combining twelve years of DJ-booth experience with a solid track record in the corporate world. Our starting point was not music: it was business. We know first-hand how an organization works, how an event is planned and what an executive team really expects when they sit down for dinner. That understanding of the corporate world defines the way we work.',
-      'bio.p2': 'We are trained in music production, telecommunications engineering and sound technology, complemented by studies in advertising and marketing. We are not simply DJs: we are technicians and creatives with a professional approach to every service we deliver.',
-      'bio.chip1': '12 years of experience',
-      'bio.chip2': 'All of Spain',
-      'photos.booth': 'The Humans in the booth',
-      'photos.live': 'The Humans live',
-      'services.label': 'services',
-      'services.title': 'All the atmosphere, none of the hassle.',
-      'services.sub': 'Complete musical ambience for every moment of the event.',
-      'services.s1.title': 'Gala Dinners',
-      'services.s1.body': 'Elegant musical ambience for corporate evening dinners, creating the perfect atmosphere for every moment.',
-      'services.s2.title': 'Cocktails & Receptions',
-      'services.s2.body': 'Welcome music and pre-event ambience. The ideal tone to open every gathering with elegance.',
-      'services.s3.title': 'Team Building',
-      'services.s3.body': 'Dynamic energy for group activities. A musical selection that unites teams and elevates the collective experience.',
-      'services.s4.title': 'Conferences & Workshops',
-      'services.s4.body': 'Discreet, professional background music for conferences and business days. Sound presence without unnecessary protagonism.',
-      'services.s5.title': 'Networking',
-      'services.s5.body': 'A fluid atmosphere for business networking. Sound that eases conversation without interrupting it.',
-      'services.s6.title': 'Company Anniversaries',
-      'services.s6.body': 'Corporate milestone celebrations and company galas. A special night deserves a soundtrack to match.',
-      'services.f1': 'Own equipment included',
-      'services.f2': 'From 1 to 8 hours',
-      'services.f3': 'Nationwide coverage',
-      'why.label': 'why us',
-      'why.title': 'Professionals who understand business before music.',
-      'why.w1.title': 'Pre-event briefing, every time',
-      'why.w1.body': 'Before every service we study the guest profile, the programme timings and the client’s preferences. We don’t improvise: we arrive with a plan.',
-      'why.w2.title': 'We come from the corporate world',
-      'why.w2.body': 'We understand how a company works and what an executive team expects. That perspective changes how we prepare and deliver every event.',
-      'why.w3.title': 'Full technical autonomy',
-      'why.w3.body': 'All we need is a table and a power socket. No supplier coordination, no technical surprises, no extra load on the organizer.',
-      'why.w4.title': 'Real adaptability',
-      'why.w4.body': 'Twelve years across every possible context let us read any room and adjust the sound in real time, without the organizer having to step in.',
-      'clients.label': 'events & clients',
-      'clients.title': 'Reference venues. Clients who come back.',
-      'clients.s1': 'Corporate Events',
-      'clients.s2': 'Agency Collaborations',
-      'specs.label': 'tech rider',
-      'specs.title': 'Everything you need to know before booking.',
-      'specs.r1.k': 'Main equipment',
-      'specs.r2.k': 'Sound',
-      'specs.r2.v': 'Own system included',
-      'specs.r3.k': 'Lighting',
-      'specs.r3.v': 'Included',
-      'specs.r4.k': 'Requirements',
-      'specs.r4.v': '1 × 220V power socket + booth space',
-      'specs.r5.k': 'Languages',
-      'specs.r5.v': 'Spanish · English',
-      'specs.r6.k': 'Coverage',
-      'specs.r6.v': 'Nationwide (Spain)',
-      'specs.r7.k': 'Liability insurance',
-      'specs.r7.v': 'Available on request',
-      'contact.label': 'contact',
-      'contact.title': 'Tell us about your event. We reply within 24 hours.'
-    }
-  };
+  var DATA = 'data/';
+
+  /* Fallback dictionary: mirrors the hardcoded HTML so the page still works
+     if content.json fails to load. Overwritten by content.json when present. */
+  var I18N = { es: {}, en: {} };
+  var IMAGES = {};
+  var VERSION = '';
 
   var lang = localStorage.getItem('th-lang') || 'es';
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ---------- apply text + images ---------- */
+  function t(key) {
+    return (I18N[lang] && I18N[lang][key]) || (I18N.es && I18N.es[key]) || '';
+  }
 
   function applyLang(l) {
-    lang = I18N[l] ? l : 'es';
+    lang = I18N[l] ? l : (I18N[lang] ? lang : 'es');
     localStorage.setItem('th-lang', lang);
     document.documentElement.lang = lang;
+
     document.querySelectorAll('[data-i18n]').forEach(function (el) {
-      var key = el.getAttribute('data-i18n');
-      if (I18N[lang][key]) el.textContent = I18N[lang][key];
+      var v = t(el.getAttribute('data-i18n'));
+      if (v) el.textContent = v;
     });
     document.querySelectorAll('[data-i18n-clone]').forEach(function (el) {
-      var key = el.getAttribute('data-i18n-clone');
-      if (I18N[lang][key]) el.textContent = I18N[lang][key];
+      var v = t(el.getAttribute('data-i18n-clone'));
+      if (v) el.textContent = v;
+    });
+
+    /* contact links: text + href */
+    var email = t('contact.email');
+    var p1 = t('contact.phone1');
+    var p2 = t('contact.phone2');
+    setLink('c-email', email, 'mailto:' + email);
+    setLink('c-phone1', p1, 'tel:' + p1.replace(/\s/g, ''));
+    setLink('c-phone2', p2, 'tel:' + p2.replace(/\s/g, ''));
+
+    document.querySelectorAll('.lang-btn').forEach(function (b) {
+      b.classList.toggle('active', b.dataset.lang === lang);
     });
   }
 
-  function t(key) {
-    return (I18N[lang] && I18N[lang][key]) || key;
+  function setLink(id, text, href) {
+    var el = document.getElementById(id);
+    if (!el || !text) return;
+    el.textContent = text;
+    el.setAttribute('href', href);
   }
+
+  function applyImages() {
+    document.querySelectorAll('[data-img]').forEach(function (img) {
+      var slot = IMAGES[img.getAttribute('data-img')];
+      if (!slot) return;
+      if (slot.src) img.src = slot.src + (VERSION ? '?v=' + VERSION : '');
+      if (slot.alt != null) img.alt = slot.alt;
+    });
+  }
+
+  /* ---------- data load ---------- */
+  fetch(DATA + 'content.json', { cache: 'no-cache' })
+    .then(function (r) { return r.json(); })
+    .then(function (data) {
+      if (data.texts) I18N = data.texts;
+      if (data.images) IMAGES = data.images;
+      VERSION = data.updatedAt ? String(Date.parse(data.updatedAt) || '') : '';
+      applyLang(lang);
+      applyImages();
+      buildGallery();
+    })
+    .catch(function (err) {
+      console.error('No se pudo cargar content.json, usando textos por defecto:', err);
+      buildGallery();
+    });
 
   document.querySelectorAll('.lang-btn').forEach(function (b) {
-    b.addEventListener('click', function () {
-      applyLang(b.dataset.lang);
-      document.querySelectorAll('.lang-btn').forEach(function (x) {
-        x.classList.toggle('active', x.dataset.lang === lang);
-      });
-    });
+    b.addEventListener('click', function () { applyLang(b.dataset.lang); });
   });
   document.querySelectorAll('.lang-btn').forEach(function (b) {
     b.classList.toggle('active', b.dataset.lang === lang);
@@ -170,14 +94,11 @@
     });
   }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
 
-  document.querySelectorAll('.reveal').forEach(function (el) {
-    observer.observe(el);
-  });
+  document.querySelectorAll('.reveal').forEach(function (el) { observer.observe(el); });
 
   /* ---------- hero image load + exit fade ---------- */
   var heroContent = document.querySelector('.hero-content');
   var heroImg = document.getElementById('hero-img');
-  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   if (heroImg) {
     if (heroImg.complete) heroImg.classList.add('loaded');
@@ -204,50 +125,105 @@
     }, { passive: true });
   }
 
-  /* ---------- lightbox ---------- */
+  /* ---------- gallery + lightbox ---------- */
   var lightbox = document.getElementById('lightbox');
-  var lightboxStage = document.getElementById('lightbox-stage');
-  var lightboxCap = document.getElementById('lightbox-caption');
+  var stage = document.getElementById('lightbox-stage');
+  var capEl = document.getElementById('lightbox-caption');
+  var counterEl = document.getElementById('lightbox-counter');
+  var prevBtn = document.getElementById('lightbox-prev');
+  var nextBtn = document.getElementById('lightbox-next');
 
-  function openPhoto(src, caption) {
-    var img = document.createElement('img');
-    img.className = 'lightbox-img';
-    img.src = src;
-    img.alt = caption;
-    lightboxStage.innerHTML = '';
-    lightboxStage.appendChild(img);
-    lightboxCap.textContent = caption;
+  var items = [];      // { src, alt } in DOM order
+  var current = -1;
+  var currentImg = null;
+
+  function buildGallery() {
+    var figs = Array.prototype.slice.call(document.querySelectorAll('.gallery-item img'));
+    items = figs.map(function (img) { return img; });
+    figs.forEach(function (img, i) {
+      var fig = img.closest('.gallery-item');
+      fig.addEventListener('click', function () { open(i); });
+    });
+  }
+
+  function open(i) {
+    current = i;
+    showCurrent(0);
     lightbox.hidden = false;
     requestAnimationFrame(function () { lightbox.classList.add('open'); });
     document.body.style.overflow = 'hidden';
   }
 
-  function closeLightbox() {
+  function showCurrent(dir) {
+    var src = items[current].currentSrc || items[current].src;
+    var alt = items[current].alt || '';
+
+    var img = document.createElement('img');
+    img.className = 'lightbox-img';
+    img.src = src;
+    img.alt = alt;
+    if (!reduced) {
+      img.style.opacity = '0';
+      if (dir) img.style.transform = 'translateX(' + (dir * 26) + 'px)';
+    }
+
+    var old = currentImg;
+    stage.appendChild(img);
+    currentImg = img;
+
+    requestAnimationFrame(function () {
+      img.style.opacity = '1';
+      img.style.transform = 'translateX(0)';
+      if (old) {
+        old.style.opacity = '0';
+        if (!reduced) old.style.transform = 'translateX(' + (-dir * 26) + 'px)';
+        setTimeout(function () { if (old.parentNode) old.parentNode.removeChild(old); }, 320);
+      }
+    });
+
+    capEl.textContent = alt;
+    counterEl.textContent = (current + 1) + ' / ' + items.length;
+  }
+
+  function go(delta) {
+    if (!items.length) return;
+    current = (current + delta + items.length) % items.length;
+    showCurrent(delta);
+  }
+
+  function close() {
     lightbox.classList.remove('open');
     document.body.style.overflow = '';
     setTimeout(function () {
       lightbox.hidden = true;
-      lightboxStage.innerHTML = '';
-    }, 350);
+      stage.innerHTML = '';
+      currentImg = null;
+      current = -1;
+    }, 340);
   }
 
-  document.querySelectorAll('.gallery-item').forEach(function (fig) {
-    var img = fig.querySelector('img');
-    if (!img) return;
-    fig.addEventListener('click', function () {
-      var capKey = img.getAttribute('data-caption-i18n');
-      var caption = capKey ? t(capKey) : (img.getAttribute('data-caption') || img.alt);
-      openPhoto(img.src, caption);
-    });
-  });
-
+  prevBtn.addEventListener('click', function (e) { e.stopPropagation(); go(-1); });
+  nextBtn.addEventListener('click', function (e) { e.stopPropagation(); go(1); });
   lightbox.addEventListener('click', function (e) {
-    if (e.target === lightbox || e.target.classList.contains('lightbox-close')) closeLightbox();
+    if (e.target === lightbox || e.target === stage || e.target.classList.contains('lightbox-close')) close();
   });
   document.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape' && !lightbox.hidden) closeLightbox();
+    if (lightbox.hidden) return;
+    if (e.key === 'Escape') close();
+    else if (e.key === 'ArrowLeft') go(-1);
+    else if (e.key === 'ArrowRight') go(1);
   });
 
-  /* init */
+  /* swipe on touch */
+  var touchX = null;
+  lightbox.addEventListener('touchstart', function (e) { touchX = e.touches[0].clientX; }, { passive: true });
+  lightbox.addEventListener('touchend', function (e) {
+    if (touchX === null) return;
+    var dx = e.changedTouches[0].clientX - touchX;
+    if (Math.abs(dx) > 45) go(dx < 0 ? 1 : -1);
+    touchX = null;
+  }, { passive: true });
+
+  /* init: apply default active state before content.json resolves */
   applyLang(lang);
 })();

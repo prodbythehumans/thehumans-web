@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>the humans. — admin eventos</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+
+  <!-- gate -->
+  <div class="gate" id="gate">
+    <div class="gate-box">
+      <p class="gate-brand">the humans<span class="gold">.</span></p>
+      <p class="gate-label">panel eventos</p>
+      <input type="password" id="gate-input" placeholder="Contraseña" autocomplete="current-password">
+      <button id="gate-btn">Entrar</button>
+      <p class="gate-error" id="gate-error" hidden>Contraseña incorrecta.</p>
+    </div>
+  </div>
+
+  <!-- panel -->
+  <div class="panel" id="panel" hidden>
+    <header class="panel-head">
+      <p class="gate-brand">the humans<span class="gold">.</span> <span class="panel-sub">editor eventos corporativos</span></p>
+      <a href="../" class="view-link" target="_blank" rel="noopener">Ver página →</a>
+    </header>
+
+    <section class="block">
+      <h2>Imágenes</h2>
+      <p class="hint">Sube una nueva imagen para cada hueco y edita su texto alternativo (accesibilidad y SEO). Respeta el tamaño recomendado para que se vea nítida sin recortes raros.</p>
+      <div id="images-list" class="images-list"></div>
+    </section>
+
+    <section class="block">
+      <h2>Textos</h2>
+      <p class="hint">Edita cualquier texto de la página en español e inglés. Deja un campo vacío solo si quieres que salga vacío.</p>
+      <div id="texts-list"></div>
+    </section>
+
+    <section class="block block-save">
+      <h2>Guardar cambios</h2>
+      <p class="hint">Necesita un token de GitHub con permiso de escritura en el repositorio (se guarda solo en este navegador). Las imágenes nuevas y los textos se publican juntos.</p>
+      <input type="password" id="in-token" placeholder="Token de GitHub (github_pat_… o ghp_…)" autocomplete="off">
+      <button id="save-btn">Publicar cambios</button>
+      <p class="save-status" id="save-status"></p>
+    </section>
+  </div>
+
+  <script src="admin.js" defer></script>
+</body>
+</html>
