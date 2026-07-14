@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-14T17:29:26.970Z",
+  "updatedAt": "2026-07-14T17:40:47.196Z",
   "texts": {
     "es": {
       "hero.kicker": "Professional Music · Corporate Events",
@@ -138,12 +138,12 @@
       "alt": "The Humans en cabina"
     },
     "bio2": {
-      "src": "./public/duo-b.jpg",
-      "alt": "DILEMMA"
+      "src": "./public/bio2-1784050847196.png",
+      "alt": "Jorge"
     },
     "bio3": {
-      "src": "./public/duo-c.jpg",
-      "alt": "JORGE RODRIZ"
+      "src": "./public/bio3-1784050847196.png",
+      "alt": "Jose"
     },
     "clientsWide": {
       "src": "./public/club-b.jpg",
@@ -151,11 +151,11 @@
     },
     "clients2": {
       "src": "./public/club-a.jpg",
-      "alt": "DILEMMA en cabina"
+      "alt": "Jorge en cabina"
     },
     "clients3": {
       "src": "./public/club-c.jpg",
-      "alt": "JORGE RODRIZ en cabina"
+      "alt": "Jose en cabina"
     }
   }
 }
