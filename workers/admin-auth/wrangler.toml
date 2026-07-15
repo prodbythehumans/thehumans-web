@@ -1,0 +1,11 @@
+name = "thehumans-admin-auth"
+main = "src/index.js"
+compatibility_date = "2026-07-01"
+
+routes = [
+  { pattern = "thehumans.es/api/admin-auth", zone_name = "thehumans.es" }
+]
+
+[[kv_namespaces]]
+binding = "RATE_LIMIT"
+id = "02b6207004b542f9a184d6336a4de508"

@@ -2,9 +2,9 @@
 (function () {
   'use strict';
 
-  /* SHA-256 of the panel password. To change the password, generate a new
-     hash (e.g. https://emn178.github.io/online-tools/sha256.html) and replace it. */
-  var PASS_HASH = '9d3947497868e37fea0415f5102ceb10605e28021ef591f239b0388832d733f1';
+  /* Password check happens server-side (workers/admin-auth) — this repo is
+     public, so nothing password-related can live in this file. */
+  var AUTH_ENDPOINT = '/api/admin-auth';
 
   var REPO = 'prodbythehumans/thehumans-web';
   var CONFIG_PATH = 'presskit/data/config.json';
@@ -17,23 +17,25 @@
   var gate = document.getElementById('gate');
   var panel = document.getElementById('panel');
 
-  function sha256(str) {
-    return crypto.subtle.digest('SHA-256', new TextEncoder().encode(str)).then(function (buf) {
-      return Array.from(new Uint8Array(buf)).map(function (b) {
-        return b.toString(16).padStart(2, '0');
-      }).join('');
-    });
-  }
-
   function tryUnlock() {
     var val = document.getElementById('gate-input').value;
-    sha256(val).then(function (h) {
-      if (h === PASS_HASH) {
+    var btn = document.getElementById('gate-btn');
+    btn.disabled = true;
+    fetch(AUTH_ENDPOINT, {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify({ password: val })
+    }).then(function (r) { return r.json(); }).then(function (res) {
+      btn.disabled = false;
+      if (res.ok) {
         sessionStorage.setItem('th-admin', '1');
         openPanel();
       } else {
         document.getElementById('gate-error').hidden = false;
       }
+    }).catch(function () {
+      btn.disabled = false;
+      document.getElementById('gate-error').hidden = false;
     });
   }
 
