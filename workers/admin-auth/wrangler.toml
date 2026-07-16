@@ -3,7 +3,8 @@ main = "src/index.js"
 compatibility_date = "2026-07-01"
 
 routes = [
-  { pattern = "thehumans.es/api/admin-auth", zone_name = "thehumans.es" }
+  { pattern = "thehumans.es/presskit/admin/api/*", zone_name = "thehumans.es" },
+  { pattern = "thehumans.es/eventos-corporativos/admin/api/*", zone_name = "thehumans.es" }
 ]
 
 [[kv_namespaces]]

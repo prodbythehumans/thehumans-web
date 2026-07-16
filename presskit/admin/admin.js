@@ -2,13 +2,13 @@
 (function () {
   'use strict';
 
-  /* Password check happens server-side (workers/admin-auth) — this repo is
-     public, so nothing password-related can live in this file. */
-  var AUTH_ENDPOINT = '/api/admin-auth';
+  /* Password check + publishing happen server-side (workers/admin-auth) —
+     this repo is public, so nothing password- or token-related can live
+     in this file. */
+  var AUTH_ENDPOINT = '/presskit/admin/api/auth';
+  var PUBLISH_ENDPOINT = '/presskit/admin/api/publish';
 
-  var REPO = 'prodbythehumans/thehumans-web';
   var CONFIG_PATH = 'presskit/data/config.json';
-  var BRANCH = 'main';
   var DATA = '../data/';
   var THUMB = function (id, w) {
     return 'https://drive.google.com/thumbnail?id=' + id + '&sz=w' + (w || 400);
@@ -80,9 +80,6 @@
     document.getElementById('in-fallback').value = s.totalFallback || 0;
     recalcTotal();
     document.getElementById('in-spotify').addEventListener('input', recalcTotal);
-
-    var savedToken = localStorage.getItem('th-gh-token');
-    if (savedToken) document.getElementById('in-token').value = savedToken;
 
     renderPhotos();
     renderVideos();
@@ -196,39 +193,24 @@
   }
 
   document.getElementById('save-btn').addEventListener('click', function () {
-    var token = document.getElementById('in-token').value.trim();
-    if (!token) { setStatus('Falta el token de GitHub.', 'err'); return; }
-    localStorage.setItem('th-gh-token', token);
-
     var newConfig = collectConfig();
     var body = JSON.stringify(newConfig, null, 2) + '\n';
-    var api = 'https://api.github.com/repos/' + REPO + '/contents/' + CONFIG_PATH;
-    var headers = {
-      'Authorization': 'Bearer ' + token,
-      'Accept': 'application/vnd.github+json'
-    };
+    var b64 = btoa(unescape(encodeURIComponent(body)));
 
     setStatus('Guardando…');
 
-    fetch(api + '?ref=' + BRANCH, { headers: headers })
-      .then(function (r) {
-        if (!r.ok) throw new Error('No se pudo leer config actual (HTTP ' + r.status + ')');
-        return r.json();
+    fetch(PUBLISH_ENDPOINT, {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify({
+        path: CONFIG_PATH,
+        contentBase64: b64,
+        message: 'Update press kit config from admin panel'
       })
-      .then(function (current) {
-        return fetch(api, {
-          method: 'PUT',
-          headers: headers,
-          body: JSON.stringify({
-            message: 'Update press kit config from admin panel',
-            content: btoa(unescape(encodeURIComponent(body))),
-            sha: current.sha,
-            branch: BRANCH
-          })
-        });
-      })
-      .then(function (r) {
-        if (!r.ok) throw new Error('Error al guardar (HTTP ' + r.status + ')');
+    })
+      .then(function (r) { return r.json(); })
+      .then(function (res) {
+        if (!res.ok) throw new Error(res.error || 'Error al guardar');
         config = newConfig;
         setStatus('Publicado. La web se actualiza en 1–2 minutos.', 'ok');
       })

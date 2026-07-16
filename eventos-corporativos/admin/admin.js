@@ -2,12 +2,12 @@
 (function () {
   'use strict';
 
-  /* Password check happens server-side (workers/admin-auth) — this repo is
-     public, so nothing password-related can live in this file. */
-  var AUTH_ENDPOINT = '/api/admin-auth';
+  /* Password check + publishing happen server-side (workers/admin-auth) —
+     this repo is public, so nothing password- or token-related can live
+     in this file. */
+  var AUTH_ENDPOINT = '/eventos-corporativos/admin/api/auth';
+  var PUBLISH_ENDPOINT = '/eventos-corporativos/admin/api/publish';
 
-  var REPO = 'prodbythehumans/thehumans-web';
-  var BRANCH = 'main';
   var CONTENT_PATH = 'eventos-corporativos/data/content.json';
   var PUBLIC_DIR = 'eventos-corporativos/public/';
   var MAX_UPLOAD = 8 * 1024 * 1024; // 8 MB
@@ -152,8 +152,6 @@
         content = data;
         renderImages();
         renderTexts();
-        var saved = localStorage.getItem('th-gh-token');
-        if (saved) document.getElementById('in-token').value = saved;
       })
       .catch(function (err) {
         setStatus('No se pudo cargar content.json: ' + err.message, 'err');
@@ -317,37 +315,16 @@
     el.className = 'save-status' + (cls ? ' ' + cls : '');
   }
 
-  function ghHeaders(token) {
-    return {
-      'Authorization': 'Bearer ' + token,
-      'Accept': 'application/vnd.github+json'
-    };
-  }
-
-  function putFile(token, path, base64, message) {
-    var api = 'https://api.github.com/repos/' + REPO + '/contents/' + path;
-    return fetch(api + '?ref=' + BRANCH, { headers: ghHeaders(token) })
-      .then(function (r) { return r.ok ? r.json() : null; })
-      .then(function (current) {
-        var body = {
-          message: message,
-          content: base64,
-          branch: BRANCH
-        };
-        if (current && current.sha) body.sha = current.sha;
-        return fetch(api, {
-          method: 'PUT',
-          headers: ghHeaders(token),
-          body: JSON.stringify(body)
-        });
-      })
-      .then(function (r) {
-        if (!r.ok) {
-          return r.json().catch(function () { return {}; }).then(function (e) {
-            throw new Error((e.message || 'HTTP ' + r.status) + ' — ' + path);
-          });
-        }
-        return r.json();
+  function putFile(path, base64, message) {
+    return fetch(PUBLISH_ENDPOINT, {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify({ path: path, contentBase64: base64, message: message })
+    })
+      .then(function (r) { return r.json(); })
+      .then(function (res) {
+        if (!res.ok) throw new Error((res.error || 'Error al guardar') + ' — ' + path);
+        return res;
       });
   }
 
@@ -370,10 +347,7 @@
   }
 
   document.getElementById('save-btn').addEventListener('click', function () {
-    var token = document.getElementById('in-token').value.trim();
-    if (!token) { setStatus('Falta el token de GitHub.', 'err'); return; }
     if (!content) { setStatus('El contenido aún no se ha cargado.', 'err'); return; }
-    localStorage.setItem('th-gh-token', token);
 
     var btn = this;
     btn.disabled = true;
@@ -392,7 +366,7 @@
         var img = pendingImages[id];
         var filename = id + '-' + stamp + '.' + img.ext;
         setStatus('Subiendo imagen ' + (i + 1) + ' de ' + slots.length + '…');
-        return putFile(token, PUBLIC_DIR + filename, img.base64, 'Update eventos image: ' + id)
+        return putFile(PUBLIC_DIR + filename, img.base64, 'Update eventos image: ' + id)
           .then(function () {
             next.images[id].src = './public/' + filename;
           });
@@ -404,7 +378,7 @@
         setStatus('Publicando textos…');
         var json = JSON.stringify(next, null, 2) + '\n';
         var b64 = btoa(unescape(encodeURIComponent(json)));
-        return putFile(token, CONTENT_PATH, b64, 'Update eventos content from admin panel');
+        return putFile(CONTENT_PATH, b64, 'Update eventos content from admin panel');
       })
       .then(function () {
         content = next;
