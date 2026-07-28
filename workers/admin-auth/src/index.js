@@ -25,6 +25,10 @@ const ALLOWED_PATHS = {
     /^eventos-corporativos\/data\/content\.json$/,
     /^eventos-corporativos\/public\/(hero|bio1|bio2|bio3|clientsWide|clients2|clients3)-\d+\.(jpe?g|png|webp)$/,
   ],
+  links: [
+    /^links\/data\/config\.json$/,
+    /^links\/public\/(avatar|background)-\d+\.(jpe?g|png|webp)$/,
+  ],
 };
 
 function timingSafeEqual(a, b) {
@@ -142,7 +146,9 @@ export default {
       ? 'presskit'
       : url.pathname.startsWith('/eventos-corporativos/admin/')
         ? 'eventos'
-        : null;
+        : url.pathname.startsWith('/links/admin/')
+          ? 'links'
+          : null;
 
     if (!app) return json({ ok: false, error: 'No encontrado.' }, 404);
 

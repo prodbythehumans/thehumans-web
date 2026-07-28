@@ -1,0 +1,65 @@
+{
+  "updatedAt": "2026-07-28T00:00:00.000Z",
+  "profile": {
+    "avatarUrl": "",
+    "name": "the humans.",
+    "bio": "DJs & productores — Madrid, España",
+    "badge": "Disponibles para booking"
+  },
+  "links": [
+    {
+      "id": "presskit",
+      "type": "link",
+      "title": "Press kit digital",
+      "subtitle": "Bio, fotos, vídeos y streams",
+      "url": "/presskit/",
+      "icon": "press",
+      "visible": true
+    },
+    {
+      "id": "eventos",
+      "type": "link",
+      "title": "Booking para eventos",
+      "subtitle": "Reserva DJ set o producción",
+      "url": "/eventos-corporativos/",
+      "icon": "calendar",
+      "visible": true
+    },
+    {
+      "id": "instagram",
+      "type": "link",
+      "title": "Instagram",
+      "subtitle": "@prodbythehumans",
+      "url": "https://instagram.com/prodbythehumans",
+      "icon": "instagram",
+      "visible": true
+    },
+    {
+      "id": "email",
+      "type": "link",
+      "title": "Email",
+      "subtitle": "epenaloza1997@gmail.com",
+      "url": "mailto:epenaloza1997@gmail.com",
+      "icon": "mail",
+      "visible": true
+    },
+    {
+      "id": "phone",
+      "type": "link",
+      "title": "WhatsApp",
+      "subtitle": "+34 680 79 49 10",
+      "url": "tel:+34680794910",
+      "icon": "phone",
+      "visible": true
+    }
+  ],
+  "design": {
+    "background": { "type": "solid", "color": "#191919", "colorTo": "#000000", "angle": 135, "imageUrl": "" },
+    "textColor": "#FFFDF7",
+    "mutedColor": "#969595",
+    "accentColor": "#DBC093",
+    "buttonFill": "outline",
+    "buttonRadius": 10,
+    "motion": "full"
+  }
+}

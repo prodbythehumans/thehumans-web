@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>the humans. — admin links</title>
+  <link rel="icon" href="/public/favicon.svg" type="image/svg+xml">
+  <link rel="icon" type="image/png" sizes="32x32" href="/public/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/public/favicon-16.png">
+  <link rel="apple-touch-icon" href="/public/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+
+  <!-- gate -->
+  <div class="gate" id="gate">
+    <div class="gate-box">
+      <p class="gate-brand">the humans<span class="gold">.</span></p>
+      <p class="gate-label">panel privado</p>
+      <label class="visually-hidden" for="gate-input">Contraseña</label>
+      <input type="password" id="gate-input" placeholder="Contraseña" autocomplete="current-password">
+      <button id="gate-btn" type="button">Entrar</button>
+      <p class="gate-error" id="gate-error" role="alert" hidden>Contraseña incorrecta.</p>
+    </div>
+  </div>
+
+  <!-- panel -->
+  <div class="panel" id="panel" hidden>
+    <header class="panel-head">
+      <p class="gate-brand">the humans<span class="gold">.</span> <span class="panel-sub">editor de links</span></p>
+      <a href="../" class="view-link" target="_blank" rel="noopener">Ver página →</a>
+    </header>
+
+    <div class="tabs">
+      <div role="tablist" aria-label="Secciones del editor" class="tab-list">
+        <button role="tab" type="button" id="tab-content" aria-selected="true" aria-controls="panel-content" class="tab-btn active">Perfil y enlaces</button>
+        <button role="tab" type="button" id="tab-design" aria-selected="false" aria-controls="panel-design" tabindex="-1" class="tab-btn">Diseño</button>
+        <button role="tab" type="button" id="tab-preview" aria-selected="false" aria-controls="panel-preview" tabindex="-1" class="tab-btn">Vista previa</button>
+      </div>
+
+      <!-- ---------- perfil + enlaces ---------- -->
+      <div role="tabpanel" id="panel-content" aria-labelledby="tab-content" class="tab-panel">
+
+        <section class="block">
+          <h2>Perfil</h2>
+          <div class="field-grid">
+            <label>Avatar
+              <input type="file" id="in-avatar" accept="image/jpeg,image/png,image/webp">
+            </label>
+            <div class="avatar-preview-wrap">
+              <img id="avatar-preview" class="avatar-preview" alt="" hidden>
+              <span id="avatar-preview-empty" class="avatar-preview-empty">Sin avatar</span>
+            </div>
+            <label>Nombre
+              <input type="text" id="in-name" maxlength="60">
+            </label>
+            <label>Insignia (opcional)
+              <input type="text" id="in-badge" maxlength="40" placeholder="Disponibles para booking">
+            </label>
+            <label class="field-wide">Bio
+              <textarea id="in-bio" maxlength="140" rows="2"></textarea>
+            </label>
+          </div>
+        </section>
+
+        <section class="block">
+          <div class="block-head-row">
+            <h2>Enlaces</h2>
+            <div class="add-btns">
+              <button type="button" class="btn-secondary" id="add-link">+ Enlace</button>
+              <button type="button" class="btn-secondary" id="add-header">+ Cabecera</button>
+              <button type="button" class="btn-secondary" id="add-embed">+ Embed</button>
+            </div>
+          </div>
+          <p class="hint">Usa las flechas para reordenar. Desmarca «visible» para ocultar un enlace sin borrarlo.</p>
+          <ul class="link-editor-list" id="link-editor-list"></ul>
+        </section>
+      </div>
+
+      <!-- ---------- diseño ---------- -->
+      <div role="tabpanel" id="panel-design" aria-labelledby="tab-design" class="tab-panel" hidden>
+
+        <section class="block">
+          <h2>Fondo</h2>
+          <div class="field-grid">
+            <label>Tipo
+              <select id="in-bg-type">
+                <option value="solid">Sólido</option>
+                <option value="gradient">Degradado</option>
+                <option value="image">Imagen</option>
+              </select>
+            </label>
+            <label>Color
+              <span class="color-field"><input type="color" id="in-bg-color"><input type="text" id="in-bg-color-hex" maxlength="7"></span>
+            </label>
+            <label id="field-bg-to">Color 2 (degradado)
+              <span class="color-field"><input type="color" id="in-bg-color-to"><input type="text" id="in-bg-color-to-hex" maxlength="7"></span>
+            </label>
+            <label id="field-bg-image">Imagen de fondo
+              <input type="file" id="in-bg-image" accept="image/jpeg,image/png,image/webp">
+            </label>
+          </div>
+        </section>
+
+        <section class="block">
+          <h2>Colores</h2>
+          <div class="field-grid">
+            <label>Texto
+              <span class="color-field"><input type="color" id="in-text-color"><input type="text" id="in-text-color-hex" maxlength="7"></span>
+            </label>
+            <label>Texto secundario
+              <span class="color-field"><input type="color" id="in-muted-color"><input type="text" id="in-muted-color-hex" maxlength="7"></span>
+            </label>
+            <label>Acento
+              <span class="color-field"><input type="color" id="in-accent-color"><input type="text" id="in-accent-color-hex" maxlength="7"></span>
+            </label>
+          </div>
+          <ul class="contrast-report" id="contrast-report" aria-live="polite"></ul>
+          <p class="hint">Calculado contra el color base del fondo (para degradado o imagen, es una referencia).</p>
+        </section>
+
+        <section class="block">
+          <h2>Botones</h2>
+          <div class="field-grid">
+            <label>Relleno
+              <select id="in-button-fill">
+                <option value="outline">Contorno</option>
+                <option value="solid">Sólido</option>
+                <option value="soft">Suave</option>
+              </select>
+            </label>
+            <label>Redondeo: <span id="radius-value">10px</span>
+              <input type="range" id="in-button-radius" min="0" max="28" step="1">
+            </label>
+          </div>
+        </section>
+
+        <section class="block">
+          <h2>Movimiento</h2>
+          <div class="field-grid">
+            <label>Animaciones
+              <select id="in-motion">
+                <option value="full">Completas</option>
+                <option value="none">Ninguna</option>
+              </select>
+            </label>
+          </div>
+          <p class="hint">Con «Ninguna» se desactivan también para quienes no hayan pedido reducir movimiento en su sistema.</p>
+        </section>
+      </div>
+
+      <!-- ---------- vista previa ---------- -->
+      <div role="tabpanel" id="panel-preview" aria-labelledby="tab-preview" class="tab-panel" hidden>
+        <section class="block">
+          <div class="block-head-row">
+            <h2>Vista previa</h2>
+            <button type="button" class="btn-secondary" id="refresh-preview">Actualizar vista previa</button>
+          </div>
+          <p class="hint">Refleja los cambios sin publicar. Pulsa «Actualizar» tras editar.</p>
+          <div class="phone-frame">
+            <iframe id="preview-frame" title="Vista previa de la página de links" src="about:blank"></iframe>
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <section class="block block-save">
+      <h2>Publicar</h2>
+      <p class="hint">Sube el avatar (si cambió) y publica el JSON directamente en la web.</p>
+      <button id="save-btn" type="button">Publicar cambios</button>
+      <p class="save-status" id="save-status" aria-live="polite"></p>
+    </section>
+  </div>
+
+  <script src="admin.js" defer></script>
+</body>
+</html>
